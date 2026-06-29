@@ -1,14 +1,17 @@
 const express = require('express');
+const morgan = require('morgan');
 
 // express app
 const app = express();
 
-// listen for requests
-app.listen(3000);
-
 // register view engine
 app.set('view engine', 'ejs');
 
+// middleware & static files
+app.use(express.static('public'));
+app.use(morgan('dev'));
+
+// routing and rendering
 app.get('/', (req, res) => {
     const recipes = [
     {title: 'Arc Reactor Energy Bites', snippet: 'No‑bake oatmeal protein balls packed with peanut butter and honey. The snack that keeps your core running at 100%.'},
@@ -32,3 +35,6 @@ app.get('/blogs/create', (req, res) => {
 app.use((req, res) => {
     res.status(404).render('404', { title: '404'});
 });
+
+// listen for requests
+app.listen(3000);

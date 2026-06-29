@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Noto Serif', serif;
+    background-color: #1a1a1a;
+    color: #e8e0d0;
+}
+
+p, h1, h2, h3, a, ul {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #e8e0d0;
+}
+
+/* nav styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #b8860b;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+nav li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+nav h1 {
+    font-size: 3em;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: #c9a227;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
+}
+
+nav p {
+    color: #8a0000;
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-size: 0.75em;
+}
+
+nav a {
+    color: #c9a227;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #ff4444;
+}
+
+/* footer styles */
+footer {
+    color: #555;
+    text-align: center;
+    margin: 80px auto 20px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 2px;
+    border-top: 1px solid #1f1f1f;
+    padding-top: 20px;
+}
+
+h2 {
+    margin-bottom: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: #c9a227;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h3 {
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.3em;
+    color: #e8e0d0;
+    letter-spacing: 1px;
+}
+
+.content {
+    margin-left: 20px;
+}
+
+/* index styles — recipe cards */
+.recipe-card {
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #8a0000;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.recipe-card:hover {
+    border-left-color: #c9a227;
+    background: #191919;
+}
+
+.snippet {
+    color: #888;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* create styles */
+.create-blog form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.create-blog input,
+.create-blog textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    color: #e8e0d0;
+    font-family: 'Noto Serif', serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.create-blog input:focus,
+.create-blog textarea:focus {
+    border-color: #c9a227;
+}
+
+.create-blog label {
+    display: block;
+    margin-top: 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #c9a227;
+    font-size: 0.9em;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.create-blog button {
+    margin-top: 20px;
+    background: #8a0000;
+    color: #e8e0d0;
+    padding: 10px 24px;
+    border: 0;
+    font-size: 1em;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.create-blog button:hover {
+    background: #c9a227;
+    color: #0d0d0d;
+}
