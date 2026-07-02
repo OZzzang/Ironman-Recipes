@@ -1,5 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const Recipe = require('./models/recipe');
 
 // express app
 const app = express();
@@ -10,6 +13,48 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use(express.static('public'));
 app.use(morgan('dev'));
+
+// Connect to MongoDB
+const dbURI = process.env.dbURI;
+mongoose.connect(dbURI)
+    .then(result => app.listen(3000))
+    .catch(err => console.log(err));
+
+// sandbox routes testing
+app.get('/add-recipe', (req, res) => {
+    const recipe = new Recipe({
+        title: 'testing recipe 1',
+        snippet: 'testing snippet',
+        body: 'testing body'
+    });
+    recipe.save()
+        .then(result => {
+            res.send(result);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+app.get('/all-recipes', (req, res) => {
+    Recipe.find()
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+app.get('/single-recipe', (req, res) => {
+    Recipe.findById('6a45ed8e4acb610363e0a20a')
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
 
 // routing and rendering
 app.get('/', (req, res) => {
@@ -35,6 +80,3 @@ app.get('/blogs/create', (req, res) => {
 app.use((req, res) => {
     res.status(404).render('404', { title: '404'});
 });
-
-// listen for requests
-app.listen(3000);
