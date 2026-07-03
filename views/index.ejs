@@ -9,10 +9,10 @@
         
         <% if (recipes.length > 0) { %>
             <% recipes.forEach(recipe => { %>
-
-                <h3 class="title"><%= recipe.title %></h3>
-                <p class="snippet"><%= recipe.snippet %></p>
-
+                <a class="single" href="/recipe/<%= recipe._id %>">
+                    <h3 class="title"><%= recipe.title %></h3>
+                    <p class="snippet"><%= recipe.snippet %></p>
+                </a>
             <% }) %>
         <% } else { %>
             <p>There are no recipes to display</p>

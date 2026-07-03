@@ -1,0 +1,17 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="details content">
+        <h2><%= recipe.title %></h2>
+        <p class="recipe-meta">Stark Industries Recipe Archive</p>
+        <div class="content">
+            <p><%= recipe.body %></p>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+<html>

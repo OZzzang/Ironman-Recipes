@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // Connect to MongoDB
@@ -40,8 +41,31 @@ app.get('/recipe', (req, res) => {
         });
 });
 
+app.post('/recipe', (req, res) => {
+    const recipe = new Recipe(req.body);
+    
+    recipe.save()
+        .then(result => {
+            res.redirect('/recipe');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
 app.get('/recipe/create', (req, res) => {
     res.render('create', { title: 'Create A New Recipe'});
+});
+
+app.get('/recipe/:id', (req, res) => {
+    const id = req.params.id
+    Recipe.findById(id)
+        .then(result => {
+            res.render('details', { recipe: result, title: 'Recipe Details' });
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 // 404 page
