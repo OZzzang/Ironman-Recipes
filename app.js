@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Recipe = require('./models/recipe');
+const recipeRoutes = require('./routes/recipeRoutes');
 
 // express app
 const app = express();
@@ -31,42 +31,7 @@ app.get('/about', (req, res) => {
 });
 
 // recipe routes
-app.get('/recipe', (req, res) => {
-    Recipe.find().sort({ createdAt: -1 })
-        .then(result => {
-            res.render('index', { title: 'All Recipes', recipes: result });
-        })
-        .catch(err => {
-            console.log(err);
-        });
-});
-
-app.post('/recipe', (req, res) => {
-    const recipe = new Recipe(req.body);
-    
-    recipe.save()
-        .then(result => {
-            res.redirect('/recipe');
-        })
-        .catch(err => {
-            console.log(err);
-        });
-});
-
-app.get('/recipe/create', (req, res) => {
-    res.render('create', { title: 'Create A New Recipe'});
-});
-
-app.get('/recipe/:id', (req, res) => {
-    const id = req.params.id
-    Recipe.findById(id)
-        .then(result => {
-            res.render('details', { recipe: result, title: 'Recipe Details' });
-        })
-        .catch(err => {
-            console.log(err);
-        });
-});
+app.use(recipeRoutes);
 
 // 404 page
 app.use((req, res) => {
