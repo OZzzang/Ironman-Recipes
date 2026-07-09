@@ -1,7 +1,7 @@
 # Ironman Recipes
 A recipe website with an Ironman theme, built with Node, Express, and MongoDB for learning purposes.
 
-🔗 **Live Site:** [ironmanrecipes.onrender.com](https://ironmanrecipes.onrender.com/)
+🔗 **Live Site:** [Ironman Recipes](https://ironmanrecipes.onrender.com/)
 
 ## Tech Stack
 - Node.js
