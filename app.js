@@ -31,7 +31,7 @@ app.get('/about', (req, res) => {
 });
 
 // recipe routes
-app.use(recipeRoutes);
+app.use('/recipe', recipeRoutes);
 
 // 404 page
 app.use((req, res) => {
